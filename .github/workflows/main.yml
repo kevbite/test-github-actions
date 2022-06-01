@@ -3,7 +3,8 @@
 name: CI
 
 on:
-  release: [created]
+  release:
+    types: [created]
 
 env:
   VERSION: ${{ github.ref_name }}
