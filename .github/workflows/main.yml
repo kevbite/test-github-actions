@@ -17,6 +17,7 @@ jobs:
         run: echo "building project...."
 
   deploy-develop:
+    needs: build
     runs-on: ubuntu-latest
     environment: develop
     steps:
@@ -24,15 +25,17 @@ jobs:
         run: echo "deploying to develop"
 
   deploy-testing:
+    needs: deploy-develop
     runs-on: ubuntu-latest
     environment: testing
     steps:
       - name: Deploy to Testing
-        run: deploying to testing
+        run: echo "deploying to testing"
         
   deploy-production:
+    needs: deploy-testing
     runs-on: ubuntu-latest
     environment: production
     steps:
       - name: Deploy to Production
-        run: deploying to production
+        run: echo "deploying to production"
