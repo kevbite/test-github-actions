@@ -12,12 +12,17 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    concurrency: 
+      group: main-${{ github.ref }}
+      cancel-in-progress: true
 
     steps:
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
         run: echo "building something"
+      - name: sleep a bit
+        run: sleep 60
         
       - name: Create Release
         id: create_release
