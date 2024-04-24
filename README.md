@@ -1,2 +1,2 @@
 # test-github-actions
-Change 6
+Change 7
